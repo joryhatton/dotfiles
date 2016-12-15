@@ -24,15 +24,17 @@ set splitright
 
 inoremap jk <ESC>
 
+" disable arrow keys altogether
+inoremap <Up> <Nop>
+inoremap <Down> <Nop>
+inoremap <Left> <Nop>
+inoremap <Right> <Nop>
+
 syntax enable
 filetype plugin indent on
 
 colorscheme monokai
 
-" activate plugins
-set runtimepath^=~/.vim/bundle/ctrlp.vim
-set runtimepath^=~/.vim/bundle/vim-rails
-set runtimepath^=~/.vim/bundle/vim-bundler
-set runtimepath^=~/.vim/bundle/vim-multiple-cursors
-set runtimepath^=~/.vim/bundle/vim-sensible
-set runtimepath^=~/.vim/bundle/vim-fugitive
+" activate plugins via pathogen
+runtime bundle/vim-pathogen/autoload/pathogen.vim
+execute pathogen#infect()
