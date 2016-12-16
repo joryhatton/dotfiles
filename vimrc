@@ -18,6 +18,12 @@ set noswapfile
 " use one space after punctuation
 set nojoinspaces
 
+" whitespace character settings
+let g:indentLine_char='•'
+let g:indentLine_leadingSpaceChar='•'
+let g:indentLine_leadingSpaceEnabled=1
+let g:indentLine_color_term=237
+
 " open new split panes to right and bottom, which feels more natural
 set splitbelow
 set splitright
