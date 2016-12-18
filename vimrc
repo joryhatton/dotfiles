@@ -33,9 +33,10 @@ inoremap <Down> <Nop>
 inoremap <Left> <Nop>
 inoremap <Right> <Nop>
 
-syntax enable
 filetype plugin indent on
 
+syntax enable
+set background=dark
 colorscheme monokai
 
 " activate plugins via pathogen
