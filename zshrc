@@ -2,12 +2,11 @@ export PATH=/usr/local/bin:$PATH
 export EDITOR=vim
 
 # oh-my-zsh
-alias reload=". ~/.zshrc && echo 'ZSH config reloaded from ~/.zshrc'"
 export UPDATE_ZSH_DAYS=7
 export ZSH=$HOME/.oh-my-zsh
-ZSH_THEME="kolo-improved"
-COMPLETION_WAITING_DOTS="true"
-plugins=(git)
+ZSH_THEME="gallois"
+plugins=(git zsh-syntax-highlighting)
+alias reload=". ~/.zshrc && echo 'ZSH config reloaded from ~/.zshrc'"
 
 # force tmux to always use 256 colors
 alias tmux="tmux -2"
