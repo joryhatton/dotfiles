@@ -1,4 +1,6 @@
 export PATH=/usr/local/bin:$PATH
+export GOPATH=$HOME/work
+export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
 export EDITOR=vim
 
 # oh-my-zsh

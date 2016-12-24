@@ -81,6 +81,10 @@ inoremap <Down> <Nop>
 inoremap <Left> <Nop>
 inoremap <Right> <Nop>
 
+" set leader and custom commands
+let mapleader=","
+nnoremap <leader>E :Explore
+
 set t_Co=256
 syntax enable
 set background=dark
