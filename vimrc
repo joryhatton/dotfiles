@@ -6,11 +6,17 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
+Plugin 'tpope/vim-pathogen'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-rails'
+Plugin 'thoughtbot/vim-rspec'
+Plugin 'tpope/vim-bundler'
+Plugin 'tpope/vim-dispatch'
+Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-pathogen'
 Plugin 'tpope/vim-sensible'
+Plugin 'tpope/vim-repeat'
+Plugin 'vim-ruby/vim-ruby'
 Plugin 'leshill/vim-json'
 Plugin 'slim-template/vim-slim'
 Plugin 'plasticboy/vim-markdown'
@@ -22,6 +28,14 @@ Plugin 'Townk/vim-autoclose'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'Yggdroot/indentLine'
 Plugin 'ervandew/supertab'
+Plugin 'tomasr/molokai'
+Plugin 'mileszs/ack.vim'
+
+" the rest of these are for snippets
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
+Plugin 'honza/vim-snippets'
 
 " all plugins must be added before this line
 call vundle#end()
@@ -38,10 +52,10 @@ set shiftwidth=2
 set shiftround
 set softtabstop=2
 set backspace=2
-set nobackup
-set nowritebackup
-set noswapfile
-set colorcolumn=80
+set directory=~/.tmp " Don't clutter my dirs up with swp and tmp files"
+set shiftround " When at 3 spaces and I hit >>, go to 4, not 5.
+set nofoldenable " Say no to code folding... "
+" set colorcolumn=80
 
 " use one space after punctuation
 set nojoinspaces
@@ -49,6 +63,9 @@ set nojoinspaces
 " open new split panes to right and bottom, which feels more natural
 set splitbelow
 set splitright
+
+" remove trailing whitespace
+autocmd BufWritePre * %s/\s\+$//e
 
 " whitespace character settings
 let g:indentLine_char='•'
@@ -64,9 +81,13 @@ inoremap <Down> <Nop>
 inoremap <Left> <Nop>
 inoremap <Right> <Nop>
 
+set t_Co=256
 syntax enable
 set background=dark
-colorscheme monokai
+colorscheme molokai
+highlight Normal guibg=NONE ctermbg=NONE
+highlight NonText guibg=NONE ctermbg=NONE
+highlight SignColumn guibg=NONE ctermbg=NONE
 
 " activate plugins via pathogen
 runtime bundle/vim-pathogen/autoload/pathogen.vim
