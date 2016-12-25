@@ -9,10 +9,6 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-pathogen'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-rails'
-Plugin 'thoughtbot/vim-rspec'
-Plugin 'tpope/vim-bundler'
-Plugin 'tpope/vim-dispatch'
-Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-sensible'
 Plugin 'tpope/vim-repeat'
@@ -52,10 +48,9 @@ set shiftwidth=2
 set shiftround
 set softtabstop=2
 set backspace=2
-set directory=~/.tmp " Don't clutter my dirs up with swp and tmp files"
-set shiftround " When at 3 spaces and I hit >>, go to 4, not 5.
-set nofoldenable " Say no to code folding... "
-" set colorcolumn=80
+set directory=~/.tmp " don't clutter my dirs up with swp and tmp files
+set shiftround " when at 3 spaces and I hit >>, go to 4, not 5
+set nofoldenable
 
 " use one space after punctuation
 set nojoinspaces
@@ -64,7 +59,7 @@ set nojoinspaces
 set splitbelow
 set splitright
 
-" remove trailing whitespace
+" remove trailing whitespace on save
 autocmd BufWritePre * %s/\s\+$//e
 
 " whitespace character settings
@@ -75,7 +70,7 @@ let g:indentLine_color_term=237
 
 inoremap jk <ESC>
 
-" disable arrow keys altogether
+" disable arrow keys for navigation
 inoremap <Up> <Nop>
 inoremap <Down> <Nop>
 inoremap <Left> <Nop>
@@ -84,14 +79,18 @@ inoremap <Right> <Nop>
 " set leader and custom commands
 let mapleader=","
 nnoremap <leader>E :Explore
+nnoremap <leader>f ^
+nnoremap <leader>e $
+nnoremap <leader>o o<ESC>
+nnoremap <leader>O O<ESC>
 
-set t_Co=256
+" colors and theme
 syntax enable
 set background=dark
 colorscheme molokai
-highlight Normal guibg=NONE ctermbg=NONE
-highlight NonText guibg=NONE ctermbg=NONE
-highlight SignColumn guibg=NONE ctermbg=NONE
+set t_Co=256
+let g:rehash256 = 1 " attempt to set gui to match original molokai
+hi Visual term=reverse cterm=reverse
 
 " activate plugins via pathogen
 runtime bundle/vim-pathogen/autoload/pathogen.vim
