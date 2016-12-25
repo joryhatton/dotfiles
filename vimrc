@@ -18,7 +18,7 @@ Plugin 'slim-template/vim-slim'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'pangloss/vim-javascript'
 Plugin 'kchmck/vim-coffee-script'
-Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'Townk/vim-autoclose'
 Plugin 'airblade/vim-gitgutter'
@@ -78,19 +78,25 @@ inoremap <Right> <Nop>
 
 " set leader and custom commands
 let mapleader=","
-nnoremap <leader>E :Explore
+nnoremap <leader>e :Explore<cr>
 nnoremap <leader>f ^
-nnoremap <leader>e $
+nnoremap <leader>l $
 nnoremap <leader>o o<ESC>
 nnoremap <leader>O O<ESC>
 
 " colors and theme
 syntax enable
-set background=dark
 colorscheme molokai
+set background=dark
+set guifont=Hack:h12
+set guifont=Monospace:h12
 set t_Co=256
 let g:rehash256 = 1 " attempt to set gui to match original molokai
 hi Visual term=reverse cterm=reverse
+
+" column indicators at 80 and 120
+highlight ColorColumn ctermbg=232
+let &colorcolumn="80,".join(range(120,999),",")
 
 " activate plugins via pathogen
 runtime bundle/vim-pathogen/autoload/pathogen.vim
