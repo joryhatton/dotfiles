@@ -6,7 +6,6 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'tpope/vim-pathogen'
 Plugin 'tpope/vim-sensible'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-rails'
@@ -14,10 +13,10 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'leshill/vim-json'
-Plugin 'slim-template/vim-slim'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'pangloss/vim-javascript'
 Plugin 'kchmck/vim-coffee-script'
+Plugin 'slim-template/vim-slim'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'Townk/vim-autoclose'
@@ -29,10 +28,6 @@ Plugin 'scrooloose/nerdtree'
 
 " all plugins must be added before this line
 call vundle#end()
-
-" activate plugins via pathogen
-runtime bundle/vim-pathogen/autoload/pathogen.vim
-execute pathogen#infect()
 
 syntax enable
 filetype plugin indent on
