@@ -107,16 +107,17 @@ vnoremap <Right> <Nop>
 
 " set leader and custom commands
 let mapleader=","
-nnoremap <leader>e :NERDTreeToggle<CR>
-nnoremap <leader>E :Explore<CR>
-nnoremap <leader>f ^
-nnoremap <leader>l $
+nnoremap <leader>E :NERDTreeToggle<CR>
+nnoremap <leader>F :NERDTreeFind<CR>
+nnoremap <leader>x :Explore<CR>
+nnoremap <leader>a ^
+nnoremap <leader>e $
 nnoremap <leader>o o<ESC>
 nnoremap <leader>O O<ESC>
 nnoremap <leader>s :w<CR>
 nnoremap <leader>q :q<CR>
 nnoremap <leader>Q :qa!<CR>
-nnoremap <leader>F :Ack
+nnoremap <leader>f :Ack
 nnoremap <leader>t :A<CR>
 
 " colors and theme
