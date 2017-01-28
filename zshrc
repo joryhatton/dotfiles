@@ -17,9 +17,9 @@ alias tmux="tmux -2"
 # export secret vars from .vars
 export `cat ~/.vars`
 
-# chruby auto-switch rubies
-source /usr/local/share/chruby/chruby.sh
-source /usr/local/share/chruby/auto.sh
+# rbenv
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
 
 # load this last
 source $ZSH/oh-my-zsh.sh
