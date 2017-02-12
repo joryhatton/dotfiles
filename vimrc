@@ -34,40 +34,40 @@ call vundle#end()
 syntax enable
 filetype plugin indent on
 
-set history=500
 set showcmd
 set showmatch
 set nowrap
+set autoread
+set history=500
 set backupdir=~/.tmp
 set directory=~/.tmp " don't clutter my dirs up with swp and tmp files
-set autoread
 set wmh=0
 set viminfo+=!
 set guioptions-=T"
-set et
 set sw=2
+set laststatus=2 " always show status line.
+set regexpengine=1
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set backspace=2
+set encoding=utf-8
+set et
 set smarttab
 set noincsearch
 set ignorecase smartcase
-set laststatus=2  " always show status line.
 set relativenumber
 set number
 set gdefault " assume the /g flag on :s substitutions to replace all matches in a line
 set autoindent " always set autoindenting on
 set lazyredraw " don't redraw screen when running macros
-set regexpengine=1
 set ttyfast
 set title
 set ruler
 set nowrap
 set expandtab
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
-set backspace=2
 set shiftround " when at 3 spaces and I hit >>, go to 4, not 5
 set nofoldenable
-set encoding=utf-8
 set nojoinspaces " one space after punctuation
 set splitbelow
 set splitright
@@ -109,8 +109,8 @@ nnoremap <leader>F :NERDTreeFind<CR>
 nnoremap <leader>x :Explore<CR>
 nnoremap <leader>a ^
 nnoremap <leader>e $
-nnoremap <leader>o o<ESC>
-nnoremap <leader>O O<ESC>
+nnoremap <leader>lb o<ESC>
+nnoremap <leader>la O<ESC>
 nnoremap <leader>s :w<CR>
 nnoremap <leader>q :q<CR>
 nnoremap <leader>Q :qa!<CR>
