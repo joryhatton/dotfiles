@@ -1,11 +1,10 @@
 export PATH=/usr/local/bin:$PATH
-export GOPATH=$HOME/work
 export EDITOR=vim
 
 # oh-my-zsh
-export UPDATE_ZSH_DAYS=7
 export ZSH=$HOME/.oh-my-zsh
-ZSH_THEME="gallois"
+export UPDATE_ZSH_DAYS=7
+ZSH_THEME="sorin"
 plugins=(git zsh-syntax-highlighting)
 
 # force terminal to always use 256 colors with tmux
