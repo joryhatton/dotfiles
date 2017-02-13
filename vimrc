@@ -11,20 +11,21 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
+Plugin 'vim-syntastic/syntastic'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'mileszs/ack.vim'
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'pangloss/vim-javascript'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'slim-template/vim-slim'
-Plugin 'leshill/vim-json'
-Plugin 'plasticboy/vim-markdown'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'Townk/vim-autoclose'
 Plugin 'Yggdroot/indentLine'
 Plugin 'ervandew/supertab'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'pangloss/vim-javascript'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'slim-template/vim-slim'
+Plugin 'leshill/vim-json'
+Plugin 'plasticboy/vim-markdown'
 Plugin 'tomasr/molokai'
 Plugin 'NLKNguyen/papercolor-theme'
 
@@ -88,7 +89,7 @@ endif
 
 inoremap jk <ESC>
 
-" disable arrow keys for navigation
+" disable arrow keys altogether
 inoremap <Up> <Nop>
 inoremap <Down> <Nop>
 inoremap <Left> <Nop>
@@ -109,8 +110,8 @@ nnoremap <leader>F :NERDTreeFind<CR>
 nnoremap <leader>x :Explore<CR>
 nnoremap <leader>a ^
 nnoremap <leader>e $
-nnoremap <leader>lb o<ESC>
-nnoremap <leader>la O<ESC>
+nnoremap <leader>la o<ESC>
+nnoremap <leader>lb O<ESC>
 nnoremap <leader>s :w<CR>
 nnoremap <leader>q :q<CR>
 nnoremap <leader>Q :qa!<CR>
@@ -123,15 +124,15 @@ nnoremap <leader>O :e#<CR>
 colorscheme PaperColor " molokai
 set background=dark
 set guifont=Hack:h12
-set guifont=Monospace:h12 " use this as a fallback
-set t_Co=256 " make sure term is using 256 colors "
+set guifont=Monospace:h12 " fallback if hack isn't installed
+set t_Co=256 " make sure terminal is using 256 colors
 hi Normal guibg=NONE ctermbg=NONE
 
 " range indicators
-hi ColorColumn ctermbg=238
+hi ColorColumn ctermbg=236
 let &colorcolumn="80"
 
 " highlight current line
 set cursorline
-hi CursorLine ctermbg=238
+hi CursorLine ctermbg=236
 hi Cursor ctermbg=15 ctermfg=232
