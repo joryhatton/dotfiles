@@ -41,39 +41,36 @@ set showcmd
 set showmatch
 set nowrap
 set autoread
-set history=500
-set backupdir=~/.tmp
-set directory=~/.tmp " don't clutter my dirs up with swp and tmp files
-set wmh=0
-set viminfo+=!
-set guioptions-=T"
-set sw=2
-set laststatus=2 " always show status line.
-set regexpengine=1
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
-set backspace=2
-set encoding=utf-8
 set et
 set smarttab
 set noincsearch
 set ignorecase smartcase
 set relativenumber
 set number
-set gdefault " assume the /g flag on :s substitutions to replace all matches in a line
-set autoindent " always set autoindenting on
-set lazyredraw " don't redraw screen when running macros
 set ttyfast
 set title
 set ruler
 set nowrap
 set expandtab
-set shiftround " when at 3 spaces and I hit >>, go to 4, not 5
-set nofoldenable
-set nojoinspaces " one space after punctuation
 set splitbelow
 set splitright
+set history=500
+set backupdir=~/.tmp
+set directory=~/.tmp " don't clutter my dirs up with swp and tmp files
+set wmh=0
+set sw=2
+set regexpengine=1
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set backspace=2
+set encoding=utf-8
+set autoindent " always set autoindenting on
+set lazyredraw " don't redraw screen when running macros
+set shiftround " when at 3 spaces and I hit >>, go to 4, not 5
+set nojoinspaces " one space after punctuation
+set laststatus=2 " always show status line
+set nofoldenable
 
 " remove trailing whitespace on save
 autocmd BufWritePre * %s/\s\+$//e
@@ -81,7 +78,7 @@ autocmd BufWritePre * %s/\s\+$//e
 " show hidden files in tree
 let NERDTreeShowHidden=1
 
-" whitespace character settings
+" visible whitespace settings
 let g:indentLine_char='•'
 let g:indentLine_leadingSpaceChar='•'
 let g:indentLine_leadingSpaceEnabled=1
@@ -94,7 +91,7 @@ endif
 
 inoremap jk <ESC>
 
-" disable arrow keys altogether
+" just disable arrow keys
 inoremap <Up> <Nop>
 inoremap <Down> <Nop>
 inoremap <Left> <Nop>
