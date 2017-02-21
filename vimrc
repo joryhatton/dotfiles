@@ -1,12 +1,10 @@
 set nocompatible
-filetype off
 
 " set the runtime path to include vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'tpope/vim-sensible'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-surround'
@@ -15,25 +13,29 @@ Plugin 'vim-syntastic/syntastic'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'mileszs/ack.vim'
 Plugin 'terryma/vim-multiple-cursors'
-Plugin 'Townk/vim-autoclose'
-Plugin 'Yggdroot/indentLine'
+Plugin 'townk/vim-autoclose'
+Plugin 'yggdroot/indentLine'
 Plugin 'ervandew/supertab'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'pangloss/vim-javascript'
 Plugin 'kchmck/vim-coffee-script'
-Plugin 'slim-template/vim-slim'
 Plugin 'leshill/vim-json'
+Plugin 'slim-template/vim-slim'
 Plugin 'plasticboy/vim-markdown'
-Plugin 'tomasr/molokai'
-Plugin 'NLKNguyen/papercolor-theme'
+Plugin 'tyrannicaltoucan/vim-quantum'
 
 " all plugins must be added before this line
 call vundle#end()
 
 syntax enable
 filetype plugin indent on
+
+" explicitly enable slim syntax
+autocmd BufNewFile,BufRead *.slim set ft=slim
 
 set showcmd
 set showmatch
@@ -75,6 +77,9 @@ set splitright
 
 " remove trailing whitespace on save
 autocmd BufWritePre * %s/\s\+$//e
+
+" show hidden files in tree
+let NERDTreeShowHidden=1
 
 " whitespace character settings
 let g:indentLine_char='•'
@@ -121,12 +126,24 @@ nnoremap <leader>I :e#1<CR>
 nnoremap <leader>O :e#<CR>
 
 " colors and theme
-colorscheme PaperColor " molokai
 set background=dark
 set guifont=Hack:h12
 set guifont=Monospace:h12 " fallback if hack isn't installed
 set t_Co=256 " make sure terminal is using 256 colors
+
+" colorscheme specific
+colorscheme quantum
+let g:airline_theme='quantum'
+let g:quantum_black = 1
+
+" must be set after colorscheme
 hi Normal guibg=NONE ctermbg=NONE
+
+" airline symbols
+let g:airline_right_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_left_alt_sep= ''
+let g:airline_left_sep = ''
 
 " range indicators
 hi ColorColumn ctermbg=236
