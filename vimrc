@@ -7,27 +7,30 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'mileszs/ack.vim'
 Plugin 'terryma/vim-multiple-cursors'
-Plugin 'townk/vim-autoclose'
+Plugin 'jiangmiao/auto-pairs'
 Plugin 'yggdroot/indentLine'
 Plugin 'ervandew/supertab'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'vim-ruby/vim-ruby'
 Plugin 'pangloss/vim-javascript'
 Plugin 'kchmck/vim-coffee-script'
-Plugin 'leshill/vim-json'
 Plugin 'slim-template/vim-slim'
+Plugin 'elzr/vim-json'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'tyrannicaltoucan/vim-quantum'
+
+" ruby specific
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-endwise'
 
 " all plugins must be added before this line
 call vundle#end()
@@ -76,8 +79,10 @@ set nofoldenable
 " remove trailing whitespace on save
 autocmd BufWritePre * %s/\s\+$//e
 
-" show hidden files in tree
+" tree settings
 let NERDTreeShowHidden=1
+let NERDTreeMinimalUI = 1
+let NERDTreeAutoDeleteBuffer = 1
 
 " visible whitespace settings
 let g:indentLine_char='•'
