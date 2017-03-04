@@ -6,9 +6,12 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'tpope/vim-fugitive'
+Plugin 'tyrannicaltoucan/vim-quantum'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-repeat'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'mileszs/ack.vim'
@@ -16,18 +19,11 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'yggdroot/indentLine'
 Plugin 'ervandew/supertab'
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
 Plugin 'pangloss/vim-javascript'
 Plugin 'kchmck/vim-coffee-script'
-Plugin 'slim-template/vim-slim'
 Plugin 'elzr/vim-json'
-Plugin 'plasticboy/vim-markdown'
-Plugin 'tyrannicaltoucan/vim-quantum'
-
-" ruby specific
+Plugin 'tpope/vim-markdown'
+Plugin 'slim-template/vim-slim'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-endwise'
@@ -37,9 +33,6 @@ call vundle#end()
 
 syntax enable
 filetype plugin indent on
-
-" explicitly enable slim syntax
-autocmd BufNewFile,BufRead *.slim set ft=slim
 
 set showcmd
 set showmatch
@@ -60,7 +53,7 @@ set splitbelow
 set splitright
 set history=500
 set backupdir=~/.tmp
-set directory=~/.tmp " don't clutter my dirs up with swp and tmp files
+set directory=~/.tmp " don't clutter my curent dir with swp and tmp files
 set wmh=0
 set sw=2
 set regexpengine=1
@@ -79,22 +72,34 @@ set nofoldenable
 " remove trailing whitespace on save
 autocmd BufWritePre * %s/\s\+$//e
 
+" set markdown langs
+let g:markdown_fenced_languages = ['ruby', 'html', 'javascript', 'scss']
+
+" remove quotes from auto-pairs due to annoyance
+if !exists('g:AutoPairs')
+  let g:AutoPairs = {'(':')', '[':']', '{':'}'}
+end
+
 " tree settings
-let NERDTreeShowHidden=1
+let NERDTreeShowHidden = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeAutoDeleteBuffer = 1
+let g:NERDTreeDirArrowExpandable = '+'
+let g:NERDTreeDirArrowCollapsible = '-'
+
+" commenter settings
+let g:NERDSpaceDelims = 1
+let g:NERDTrimTrailingWhitespace = 1
 
 " visible whitespace settings
-let g:indentLine_char='•'
-let g:indentLine_leadingSpaceChar='•'
-let g:indentLine_leadingSpaceEnabled=1
-let g:indentLine_color_term=237
+let g:indentLine_color_term = 236
 
 " use silver searcher with ack if available
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
 
+" remap esc to jk
 inoremap jk <ESC>
 
 " just disable arrow keys
@@ -115,18 +120,16 @@ vnoremap <Right> <Nop>
 let mapleader=","
 nnoremap <leader>E :NERDTreeToggle<CR>
 nnoremap <leader>F :NERDTreeFind<CR>
-nnoremap <leader>x :Explore<CR>
 nnoremap <leader>a ^
 nnoremap <leader>e $
 nnoremap <leader>la o<ESC>
 nnoremap <leader>lb O<ESC>
 nnoremap <leader>s :w<CR>
 nnoremap <leader>q :q<CR>
+nnoremap <leader>qq :q!<CR>
 nnoremap <leader>Q :qa!<CR>
 nnoremap <leader>f :Ack
 nnoremap <leader>t :A<CR>
-nnoremap <leader>I :e#1<CR>
-nnoremap <leader>O :e#<CR>
 
 " colors and theme
 set background=dark
