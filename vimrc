@@ -12,6 +12,7 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tpope/vim-surround'
+Plugin 'junegunn/vim-easy-align'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'mileszs/ack.vim'
@@ -73,31 +74,35 @@ set nofoldenable
 autocmd BufWritePre * %s/\s\+$//e
 
 " set markdown langs
-let g:markdown_fenced_languages = ['ruby', 'html', 'javascript', 'scss']
+let g:markdown_fenced_languages=['ruby', 'html', 'javascript', 'scss']
 
 " remove quotes from auto-pairs due to annoyance
 if !exists('g:AutoPairs')
-  let g:AutoPairs = {'(':')', '[':']', '{':'}'}
+  let g:AutoPairs={'(':')', '[':']', '{':'}'}
 end
 
 " tree settings
-let NERDTreeShowHidden = 1
-let NERDTreeMinimalUI = 1
-let NERDTreeAutoDeleteBuffer = 1
-let g:NERDTreeDirArrowExpandable = '+'
-let g:NERDTreeDirArrowCollapsible = '-'
+let NERDTreeShowHidden=1
+let NERDTreeMinimalUI=1
+let NERDTreeAutoDeleteBuffer=1
+let g:NERDTreeDirArrowExpandable='+'
+let g:NERDTreeDirArrowCollapsible='-'
 
 " commenter settings
-let g:NERDSpaceDelims = 1
-let g:NERDTrimTrailingWhitespace = 1
+let g:NERDSpaceDelims=1
+let g:NERDTrimTrailingWhitespace=1
 
 " visible whitespace settings
-let g:indentLine_color_term = 236
+let g:indentLine_color_term=236
 
 " use silver searcher with ack if available
 if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
+  let g:ackprg='ag --vimgrep'
 endif
+
+" easy-align plugs
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
 
 " remap esc to jk
 inoremap jk <ESC>
@@ -120,6 +125,8 @@ vnoremap <Right> <Nop>
 let mapleader=","
 nnoremap <leader>E :NERDTreeToggle<CR>
 nnoremap <leader>F :NERDTreeFind<CR>
+nnoremap <leader>vv :vsplit<CR>
+nnoremap <leader>hh :split<CR>
 nnoremap <leader>a ^
 nnoremap <leader>e $
 nnoremap <leader>la o<ESC>
@@ -130,6 +137,7 @@ nnoremap <leader>qq :q!<CR>
 nnoremap <leader>Q :qa!<CR>
 nnoremap <leader>f :Ack
 nnoremap <leader>t :A<CR>
+nnoremap <leader>rr :so ~/.vimrc<CR>
 
 " colors and theme
 set background=dark
@@ -140,16 +148,16 @@ set t_Co=256 " make sure terminal is using 256 colors
 " colorscheme specific
 colorscheme quantum
 let g:airline_theme='quantum'
-let g:quantum_black = 1
+let g:quantum_black=1
 
 " must be set after colorscheme
 hi Normal guibg=NONE ctermbg=NONE
 
 " airline symbols
-let g:airline_right_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_left_alt_sep= ''
-let g:airline_left_sep = ''
+let g:airline_right_alt_sep=''
+let g:airline_right_sep=''
+let g:airline_left_alt_sep=''
+let g:airline_left_sep=''
 
 " range indicators
 hi ColorColumn ctermbg=236
