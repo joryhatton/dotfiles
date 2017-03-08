@@ -5,21 +5,25 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+" configuration and utility
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'tyrannicaltoucan/vim-quantum'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'mileszs/ack.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'junegunn/vim-easy-align'
 Plugin 'vim-syntastic/syntastic'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'mileszs/ack.vim'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'yggdroot/indentLine'
 Plugin 'ervandew/supertab'
+
+" language specific
+Plugin 'rstacruz/sparkup'
 Plugin 'pangloss/vim-javascript'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'elzr/vim-json'
@@ -35,11 +39,11 @@ call vundle#end()
 syntax enable
 filetype plugin indent on
 
+set et
 set showcmd
 set showmatch
 set nowrap
 set autoread
-set et
 set smarttab
 set noincsearch
 set ignorecase smartcase
@@ -52,9 +56,15 @@ set nowrap
 set expandtab
 set splitbelow
 set splitright
+set nobackup
+set noswapfile
+set autoindent
+set lazyredraw
+set shiftround
+set nojoinspaces
+set nofoldenable
+set encoding=utf-8
 set history=500
-set backupdir=~/.tmp
-set directory=~/.tmp " don't clutter my curent dir with swp and tmp files
 set wmh=0
 set sw=2
 set regexpengine=1
@@ -62,13 +72,9 @@ set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 set backspace=2
-set encoding=utf-8
-set autoindent " always set autoindenting on
-set lazyredraw " don't redraw screen when running macros
-set shiftround " when at 3 spaces and I hit >>, go to 4, not 5
-set nojoinspaces " one space after punctuation
-set laststatus=2 " always show status line
-set nofoldenable
+set laststatus=2
+set timeoutlen=1000
+set ttimeoutlen=0
 
 " remove trailing whitespace on save
 autocmd BufWritePre * %s/\s\+$//e

@@ -1,0 +1,8 @@
+--color
+--sort-files
+
+--ignore-dir=log
+--ignore-dir=tmp
+--ignore-dir=doc
+--ignore-dir=assets
+--ignore-dir=vendor
