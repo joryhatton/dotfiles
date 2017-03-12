@@ -7,9 +7,11 @@ export UPDATE_ZSH_DAYS=7
 ZSH_THEME="sorin"
 plugins=(git zsh-syntax-highlighting)
 
-# force terminal to always use 256 colors with tmux
+# force tmux to use 256 colors
 alias tmux="tmux -2"
 alias reload=". ~/.zshrc && echo 'zsh config reloaded'"
+# use silver searcher with an ignore file
+alias ag="ag --path-to-agignore ~/.agignore"
 
 # export secret vars from .vars
 export `cat ~/.vars`

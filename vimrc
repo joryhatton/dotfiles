@@ -79,32 +79,39 @@ set ttimeoutlen=0
 " remove trailing whitespace on save
 autocmd BufWritePre * %s/\s\+$//e
 
-" set markdown langs
-let g:markdown_fenced_languages=['ruby', 'html', 'javascript', 'scss']
-
-" remove quotes from auto-pairs due to annoyance
-if !exists('g:AutoPairs')
-  let g:AutoPairs={'(':')', '[':']', '{':'}'}
-end
-
-" tree settings
+" nerdtree settings
 let NERDTreeShowHidden=1
 let NERDTreeMinimalUI=1
 let NERDTreeAutoDeleteBuffer=1
 let g:NERDTreeDirArrowExpandable='+'
 let g:NERDTreeDirArrowCollapsible='-'
 
-" commenter settings
+" nerdcommenter settings
 let g:NERDSpaceDelims=1
 let g:NERDTrimTrailingWhitespace=1
 
-" visible whitespace settings
+" indentline (whitespace) settings
 let g:indentLine_color_term=236
 
-" use silver searcher with ack if available
+" ctrl-p settings
+let g:ctrlp_use_caching = 0
+let g:ctrlp_show_hidden = 1
+let g:ctrlp_custom_ignore = '\v[\/]\.(log|logs|tmp|vendor)$'
+let g:ctrlp_by_filename = 1
+
+" use silver searcher with ack and ctrl-p
 if executable('ag')
   let g:ackprg='ag --vimgrep'
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
+
+" set recognized markdown languages
+let g:markdown_fenced_languages=['ruby', 'html', 'javascript', 'scss']
+
+" remove quotes from auto-pairs for sanity
+if !exists('g:AutoPairs')
+  let g:AutoPairs={'(':')', '[':']', '{':'}'}
+end
 
 " easy-align plugs
 xmap ga <Plug>(EasyAlign)
@@ -113,7 +120,7 @@ nmap ga <Plug>(EasyAlign)
 " remap esc to jk
 inoremap jk <ESC>
 
-" just disable arrow keys
+" disable arrow keys altogether
 inoremap <Up> <Nop>
 inoremap <Down> <Nop>
 inoremap <Left> <Nop>
