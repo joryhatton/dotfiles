@@ -7,11 +7,9 @@ call vundle#begin()
 
 " configuration and utility
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'tyrannicaltoucan/vim-quantum'
+Plugin 'fulstop/vim-quantum'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'mileszs/ack.vim'
 Plugin 'tpope/vim-surround'
@@ -21,8 +19,10 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'yggdroot/indentLine'
 Plugin 'ervandew/supertab'
+Plugin 'tpope/vim-dispatch'
 
 " language specific
+Plugin 'tpope/vim-endwise'
 Plugin 'rstacruz/sparkup'
 Plugin 'pangloss/vim-javascript'
 Plugin 'kchmck/vim-coffee-script'
@@ -31,7 +31,7 @@ Plugin 'tpope/vim-markdown'
 Plugin 'slim-template/vim-slim'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-rails'
-Plugin 'tpope/vim-endwise'
+Plugin 'elixir-lang/vim-elixir'
 
 " all plugins must be added before this line
 call vundle#end()
@@ -136,8 +136,8 @@ vnoremap <Right> <Nop>
 
 " set leader and custom commands
 let mapleader=","
-nnoremap <leader>E :NERDTreeToggle<CR>
-nnoremap <leader>F :NERDTreeFind<CR>
+nnoremap <leader>tt :NERDTreeToggle<CR>
+nnoremap <leader>ff :NERDTreeFind<CR>
 nnoremap <leader>vv :vsplit<CR>
 nnoremap <leader>hh :split<CR>
 nnoremap <leader>a ^
@@ -146,10 +146,10 @@ nnoremap <leader>la o<ESC>
 nnoremap <leader>lb O<ESC>
 nnoremap <leader>s :w<CR>
 nnoremap <leader>q :q<CR>
-nnoremap <leader>qq :q!<CR>
-nnoremap <leader>Q :qa!<CR>
+nnoremap <leader>qq :qa!<CR>
 nnoremap <leader>f :Ack
-nnoremap <leader>t :A<CR>
+nnoremap <leader>gr :A<CR>
+nnoremap <leader>rt :Dispatch rspec %<CR>
 nnoremap <leader>rr :so ~/.vimrc<CR>
 
 " colors and theme
@@ -157,20 +157,13 @@ set background=dark
 set guifont=Hack:h12
 set guifont=Monospace:h12 " fallback if hack isn't installed
 set t_Co=256 " make sure terminal is using 256 colors
-
+"
 " colorscheme specific
 colorscheme quantum
-let g:airline_theme='quantum'
 let g:quantum_black=1
 
 " must be set after colorscheme
 hi Normal guibg=NONE ctermbg=NONE
-
-" airline symbols
-let g:airline_right_alt_sep=''
-let g:airline_right_sep=''
-let g:airline_left_alt_sep=''
-let g:airline_left_sep=''
 
 " range indicators
 hi ColorColumn ctermbg=236
