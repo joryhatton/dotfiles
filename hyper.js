@@ -5,10 +5,10 @@
 module.exports = {
   config: {
     // default font size in pixels for all tabs
-    fontSize: 14,
+    fontSize: 15,
 
     // font family with optional fallbacks
-    fontFamily: 'Hack, Menlo, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
+    fontFamily: 'Monaco, Hack, Menlo, "DejaVu Sans Mono", "Lucida Console", monospace',
 
     // terminal cursor background color and opacity (hex, rgb, hsl, hsv, hwb or cmyk)
     cursorColor: 'rgba(248,28,229,0.8)',
@@ -17,7 +17,7 @@ module.exports = {
     cursorShape: 'BLOCK',
 
     // set to true for blinking cursor
-    cursorBlink: true,
+    cursorBlink: false,
 
     // color of the text
     foregroundColor: '#f5f5f5',
@@ -26,7 +26,7 @@ module.exports = {
     backgroundColor: '#151515',
 
     // border color (window, tabs)
-    borderColor: '#333',
+    borderColor: '#252525',
 
     // custom css to embed in the main window
     css: '',
@@ -104,7 +104,12 @@ module.exports = {
   //   `hyperpower`
   //   `@company/project`
   //   `project#1.0.1`
-  plugins: [],
+  plugins: [
+    "hyper-font-smoothing",
+    "hyper-statusline",
+    "hypercwd",
+    "hyper-materialshell"
+  ],
 
   // in development, you can create a directory under
   // `~/.hyper_plugins/local/` and include it here
