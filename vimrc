@@ -7,7 +7,7 @@ call vundle#begin()
 
 " configuration and utility
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'fulstop/vim-quantum'
+Plugin 'NLKNguyen/papercolor-theme'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'ctrlpvim/ctrlp.vim'
@@ -154,13 +154,8 @@ nnoremap <leader>rr :so ~/.vimrc<CR>
 
 " colors and theme
 set background=dark
-set guifont=Hack:h12
-set guifont=Monospace:h12 " fallback if hack isn't installed
-set t_Co=256 " make sure terminal is using 256 colors
-"
-" colorscheme specific
-colorscheme quantum
-let g:quantum_black=1
+set t_Co=256
+colorscheme PaperColor
 
 " must be set after colorscheme
 hi Normal guibg=NONE ctermbg=NONE
