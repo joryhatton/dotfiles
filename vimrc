@@ -7,7 +7,7 @@ call vundle#begin()
 
 " configuration and utility
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'NLKNguyen/papercolor-theme'
+Plugin 'fulstop/vim-quantum'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'ctrlpvim/ctrlp.vim'
@@ -155,7 +155,7 @@ nnoremap <leader>rr :so ~/.vimrc<CR>
 " colors and theme
 set background=dark
 set t_Co=256
-colorscheme PaperColor
+colorscheme quantum
 
 " must be set after colorscheme
 hi Normal guibg=NONE ctermbg=NONE

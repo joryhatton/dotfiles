@@ -4,15 +4,16 @@ export EDITOR=vim
 # oh-my-zsh
 export ZSH=$HOME/.oh-my-zsh
 export UPDATE_ZSH_DAYS=7
-ZSH_THEME="refined"
 plugins=(git zsh-syntax-highlighting)
+ZSH_THEME="geometry/geometry"
+GEOMETRY_SYMBOL_PROMPT="◦"
+GEOMETRY_COLOR_DIR="magenta"
+GEOMETRY_PROMPT_PREFIX=""
+GEOMETRY_PROMPT_SUFFIX="⇢  "
 
 alias reload=". ~/.zshrc && echo 'zsh config reloaded'"
-
-# force tmux to use 256 colors
+alias rr="bundle exec rake db:drop db:create && bundle exec rake db:migrate db:test:prepare && bundle exec rake db:seed"
 alias tmux="tmux -2"
-
-# use silver searcher with an ignore file
 alias ag="ag --path-to-agignore ~/.agignore"
 
 # export secret vars from .vars
