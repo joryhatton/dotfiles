@@ -74,35 +74,31 @@ autocmd BufWritePre * %s/\s\+$//e
 " neomake
 autocmd! BufWritePost * Neomake
 
-" nerdtree settings
+" nerdtree
 let NERDTreeShowHidden=1
 let NERDTreeMinimalUI=1
 let NERDTreeAutoDeleteBuffer=1
 let g:NERDTreeDirArrowExpandable='+'
 let g:NERDTreeDirArrowCollapsible='-'
 
-" nerdcommenter settings
+" nerdcommenter
 let g:NERDSpaceDelims=1
 let g:NERDTrimTrailingWhitespace=1
 
-" indentline (whitespace) settings
+" indentline
 let g:indentLine_color_term=234
 let g:indentLine_char = '·'
 
-" ctrl-p settings
+" ctrl-p
 let g:ctrlp_use_caching = 0
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_custom_ignore = '\v[\/]\.(log|logs|tmp|vendor)$'
-" let g:ctrlp_by_filename = 1
 
 " use silver searcher with ack and ctrl-p
 if executable('ag')
   let g:ackprg='ag --vimgrep'
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
-
-" set recognized markdown languages
-let g:markdown_fenced_languages=['ruby', 'html', 'javascript', 'scss']
 
 " remove quotes from auto-pairs for sanity
 if !exists('g:AutoPairs')
@@ -113,25 +109,8 @@ end
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
-" remap esc to jk
-inoremap jk <ESC>
-
-" disable arrow keys altogether
-inoremap <Up> <Nop>
-inoremap <Down> <Nop>
-inoremap <Left> <Nop>
-inoremap <Right> <Nop>
-nnoremap <Up> <Nop>
-nnoremap <Down> <Nop>
-nnoremap <Left> <Nop>
-nnoremap <Right> <Nop>
-vnoremap <Up> <Nop>
-vnoremap <Down> <Nop>
-vnoremap <Left> <Nop>
-vnoremap <Right> <Nop>
-
-" set leader and custom commands
 let mapleader=","
+inoremap jk <ESC>
 nnoremap <leader>tt :NERDTreeToggle<CR>
 nnoremap <leader>ff :NERDTreeFind<CR>
 nnoremap <leader>vv :vsplit<CR>
