@@ -7,31 +7,23 @@ call vundle#begin()
 
 " configuration and utility
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'fulstop/vim-quantum'
+Plugin 'rakr/vim-one'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'mileszs/ack.vim'
+Plugin 'ludovicchabant/vim-gutentags'
 Plugin 'tpope/vim-surround'
 Plugin 'junegunn/vim-easy-align'
-Plugin 'vim-syntastic/syntastic'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'jiangmiao/auto-pairs'
-Plugin 'yggdroot/indentLine'
+Plugin 'Yggdroot/indentLine'
 Plugin 'ervandew/supertab'
-Plugin 'tpope/vim-dispatch'
-
-" language specific
-Plugin 'tpope/vim-endwise'
+Plugin 'sheerun/vim-polyglot'
+Plugin 'neomake/neomake'
 Plugin 'rstacruz/sparkup'
-Plugin 'pangloss/vim-javascript'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'elzr/vim-json'
-Plugin 'tpope/vim-markdown'
-Plugin 'slim-template/vim-slim'
-Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-rails'
-Plugin 'elixir-lang/vim-elixir'
+Plugin 'avdgaag/vim-phoenix'
 
 " all plugins must be added before this line
 call vundle#end()
@@ -79,6 +71,9 @@ set ttimeoutlen=0
 " remove trailing whitespace on save
 autocmd BufWritePre * %s/\s\+$//e
 
+" neomake
+autocmd! BufWritePost * Neomake
+
 " nerdtree settings
 let NERDTreeShowHidden=1
 let NERDTreeMinimalUI=1
@@ -91,13 +86,14 @@ let g:NERDSpaceDelims=1
 let g:NERDTrimTrailingWhitespace=1
 
 " indentline (whitespace) settings
-let g:indentLine_color_term=236
+let g:indentLine_color_term=234
+let g:indentLine_char = '·'
 
 " ctrl-p settings
 let g:ctrlp_use_caching = 0
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_custom_ignore = '\v[\/]\.(log|logs|tmp|vendor)$'
-let g:ctrlp_by_filename = 1
+" let g:ctrlp_by_filename = 1
 
 " use silver searcher with ack and ctrl-p
 if executable('ag')
@@ -148,23 +144,20 @@ nnoremap <leader>s :w<CR>
 nnoremap <leader>q :q<CR>
 nnoremap <leader>qq :qa!<CR>
 nnoremap <leader>f :Ack
-nnoremap <leader>gr :A<CR>
-nnoremap <leader>rt :Dispatch rspec %<CR>
 nnoremap <leader>rr :so ~/.vimrc<CR>
 
 " colors and theme
 set background=dark
-set t_Co=256
-colorscheme quantum
+colorscheme one
 
 " must be set after colorscheme
 hi Normal guibg=NONE ctermbg=NONE
 
 " range indicators
-hi ColorColumn ctermbg=236
+hi ColorColumn ctermbg=233
 let &colorcolumn="80"
 
 " highlight current line
 set cursorline
-hi CursorLine ctermbg=236
-hi Cursor ctermbg=15 ctermfg=232
+hi CursorLine ctermbg=233
+hi Cursor ctermbg=15 ctermfg=233
