@@ -1,35 +1,26 @@
 set nocompatible
-filetype off
 
-" set the runtime path to include vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" configuration and utility
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'rakr/vim-one'
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'mileszs/ack.vim'
-Plugin 'ludovicchabant/vim-gutentags'
-Plugin 'tpope/vim-surround'
-Plugin 'junegunn/vim-easy-align'
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'jiangmiao/auto-pairs'
-Plugin 'Yggdroot/indentLine'
-Plugin 'ervandew/supertab'
-Plugin 'sheerun/vim-polyglot'
-Plugin 'neomake/neomake'
-Plugin 'rstacruz/sparkup'
-Plugin 'tpope/vim-rails'
-Plugin 'avdgaag/vim-phoenix'
-
-" all plugins must be added before this line
-call vundle#end()
-
-syntax enable
-filetype plugin indent on
+" https://github.com/junegunn/vim-plug
+call plug#begin('~/.vim/plugged')
+Plug 'rakr/vim-one'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
+Plug 'junegunn/fzf.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdcommenter'
+Plug 'tpope/vim-surround'
+Plug 'junegunn/vim-easy-align'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'jiangmiao/auto-pairs'
+Plug 'Yggdroot/indentLine'
+Plug 'ervandew/supertab'
+Plug 'sheerun/vim-polyglot'
+Plug 'neomake/neomake'
+Plug 'rstacruz/sparkup'
+Plug 'tpope/vim-rails'
+Plug 'avdgaag/vim-phoenix'
+call plug#end()
 
 set et
 set showcmd
@@ -67,6 +58,8 @@ set backspace=2
 set laststatus=2
 set timeoutlen=1000
 set ttimeoutlen=0
+set statusline+=%{fugitive#statusline()}
+set wildignore+=*/.git/*,tmp/*/**,*.swp,log/*/**,vendor/*/**
 
 " remove trailing whitespace on save
 autocmd BufWritePre * %s/\s\+$//e
@@ -89,16 +82,8 @@ let g:NERDTrimTrailingWhitespace=1
 let g:indentLine_color_term=234
 let g:indentLine_char = '·'
 
-" ctrl-p
-let g:ctrlp_use_caching = 0
-let g:ctrlp_show_hidden = 1
-let g:ctrlp_custom_ignore = '\v[\/]\.(log|logs|tmp|vendor)$'
-
-" use silver searcher with ack and ctrl-p
-if executable('ag')
-  let g:ackprg='ag --vimgrep'
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-endif
+" use ripgrep with fzf
+command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --glob "!tmp/*" --glob "!vendor/*" --glob "!log/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
 
 " remove quotes from auto-pairs for sanity
 if !exists('g:AutoPairs')
@@ -109,8 +94,11 @@ end
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
-let mapleader=","
+noremap <C-p> :Files<CR>
+noremap <C-f> :Find<space>
 inoremap jk <ESC>
+
+let mapleader=","
 nnoremap <leader>tt :NERDTreeToggle<CR>
 nnoremap <leader>ff :NERDTreeFind<CR>
 nnoremap <leader>vv :vsplit<CR>
@@ -122,12 +110,19 @@ nnoremap <leader>lb O<ESC>
 nnoremap <leader>s :w<CR>
 nnoremap <leader>q :q<CR>
 nnoremap <leader>qq :qa!<CR>
-nnoremap <leader>f :Ack
+nnoremap <leader>gb :Gblame<CR>
+nnoremap <leader>gl :Glog<CR>
+nnoremap <leader>go :Gbrowse<CR>
 nnoremap <leader>rr :so ~/.vimrc<CR>
+nnoremap <leader>pi :PlugInstall<CR>
+nnoremap <leader>pu :PlugUpdate<CR>
+nnoremap <leader>pc :PlugClean<CR>
 
 " colors and theme
 set background=dark
 colorscheme one
+let g:airline_theme='base16'
+let g:airline#extensions#tabline#enabled=1
 
 " must be set after colorscheme
 hi Normal guibg=NONE ctermbg=NONE

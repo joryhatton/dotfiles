@@ -1,5 +1,0 @@
-# custom settings for xterm
-# enable with xrdb -merge .Xresources
-
-XTerm*faceName: Hack
-XTerm*faceSize: 12
