@@ -5,19 +5,11 @@ export EDITOR=vim
 export ZSH=$HOME/.oh-my-zsh
 export UPDATE_ZSH_DAYS=7
 plugins=(git zsh-syntax-highlighting)
-ZSH_THEME="geometry/geometry"
-GEOMETRY_SYMBOL_PROMPT="∘"
-GEOMETRY_SYMBOL_PROMPT2="∶"
-GEOMETRY_SYMBOL_EXIT_VALUE="∵"
-GEOMETRY_COLOR_PROMPT="green"
-GEOMETRY_COLOR_DIR="blue"
-GEOMETRY_COLOR_EXIT_VALUE="red"
-GEOMETRY_PROMPT_PREFIX=""
-GEOMETRY_PROMPT_SUFFIX="⤑  "
+ZSH_THEME="kolo"
 
+alias be="bundle exec"
 alias reload=". ~/.zshrc && echo 'zsh config reloaded'"
 alias rr="bundle exec rake db:drop db:create && bundle exec rake db:migrate db:test:prepare && bundle exec rake db:seed"
-alias tmux="tmux -2" # force tmux to use 256 colors
 
 # export secret vars from .vars
 export `cat ~/.vars`
@@ -28,3 +20,4 @@ eval "$(rbenv init -)"
 
 # load this last
 source $ZSH/oh-my-zsh.sh
+

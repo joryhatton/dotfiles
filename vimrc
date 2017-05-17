@@ -1,12 +1,10 @@
 set nocompatible
 
-" https://github.com/junegunn/vim-plug
 call plug#begin('~/.vim/plugged')
 Plug 'rakr/vim-one'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
-Plug 'junegunn/fzf.vim'
+Plug 'kien/ctrlp.vim'
+Plug 'mileszs/ack.vim'
+Plug 'itchyny/lightline.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
@@ -58,7 +56,6 @@ set backspace=2
 set laststatus=2
 set timeoutlen=1000
 set ttimeoutlen=0
-set statusline+=%{fugitive#statusline()}
 set wildignore+=*/.git/*,tmp/*/**,*.swp,log/*/**,vendor/*/**
 
 " remove trailing whitespace on save
@@ -82,9 +79,6 @@ let g:NERDTrimTrailingWhitespace=1
 let g:indentLine_color_term=234
 let g:indentLine_char = '·'
 
-" use ripgrep with fzf
-command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --glob "!tmp/*" --glob "!vendor/*" --glob "!log/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
-
 " remove quotes from auto-pairs for sanity
 if !exists('g:AutoPairs')
   let g:AutoPairs={'(':')', '[':']', '{':'}'}
@@ -94,11 +88,20 @@ end
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
-noremap <C-p> :Files<CR>
-noremap <C-f> :Find<space>
-inoremap jk <ESC>
+" use ripgrep!
+if executable('rg')
+  let g:ctrlp_user_command = 'rg --files %s'
+  let g:ctrlp_use_caching = 0
+  let g:ctrlp_working_path_mode = 'ra'
+  let g:ctrlp_switch_buffer = 'et'
+endif
+
+" and with ack!
+let g:ackprg = 'rg --vimgrep --no-heading'
 
 let mapleader=","
+inoremap jk <ESC>
+noremap <C-f> :Ack<space>
 nnoremap <leader>tt :NERDTreeToggle<CR>
 nnoremap <leader>ff :NERDTreeFind<CR>
 nnoremap <leader>vv :vsplit<CR>
@@ -121,17 +124,13 @@ nnoremap <leader>pc :PlugClean<CR>
 " colors and theme
 set background=dark
 colorscheme one
-let g:airline_theme='base16'
-let g:airline#extensions#tabline#enabled=1
+let g:lightline = { 'colorscheme': 'wombat' }
 
-" must be set after colorscheme
-hi Normal guibg=NONE ctermbg=NONE
-
-" range indicators
-hi ColorColumn ctermbg=233
-let &colorcolumn="80"
-
-" highlight current line
+" highlights and indicators
 set cursorline
-hi CursorLine ctermbg=233
-hi Cursor ctermbg=15 ctermfg=233
+let &colorcolumn="80"
+hi ColorColumn ctermbg=232
+hi Normal guibg=NONE ctermbg=NONE
+hi CursorLine ctermbg=232
+hi Cursor ctermbg=15 ctermfg=232
+hi Visual ctermbg=15 ctermfg=232
