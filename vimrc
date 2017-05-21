@@ -1,10 +1,12 @@
 set nocompatible
 
 call plug#begin('~/.vim/plugged')
-Plug 'rakr/vim-one'
-Plug 'kien/ctrlp.vim'
-Plug 'mileszs/ack.vim'
-Plug 'itchyny/lightline.vim'
+Plug 'chriskempson/tomorrow-theme', { 'rtp': 'vim/' }
+Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
@@ -56,6 +58,8 @@ set backspace=2
 set laststatus=2
 set timeoutlen=1000
 set ttimeoutlen=0
+set updatetime=250
+set statusline+=%{fugitive#statusline()}
 set wildignore+=*/.git/*,tmp/*/**,*.swp,log/*/**,vendor/*/**
 
 " remove trailing whitespace on save
@@ -68,8 +72,6 @@ autocmd! BufWritePost * Neomake
 let NERDTreeShowHidden=1
 let NERDTreeMinimalUI=1
 let NERDTreeAutoDeleteBuffer=1
-let g:NERDTreeDirArrowExpandable='+'
-let g:NERDTreeDirArrowCollapsible='-'
 
 " nerdcommenter
 let g:NERDSpaceDelims=1
@@ -88,20 +90,13 @@ end
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
-" use ripgrep!
-if executable('rg')
-  let g:ctrlp_user_command = 'rg --files %s'
-  let g:ctrlp_use_caching = 0
-  let g:ctrlp_working_path_mode = 'ra'
-  let g:ctrlp_switch_buffer = 'et'
-endif
-
-" and with ack!
-let g:ackprg = 'rg --vimgrep --no-heading'
+" use ripgrep with fzf
+command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --glob "!tmp/*" --glob "!vendor/*" --glob "!log/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
 
 let mapleader=","
 inoremap jk <ESC>
-noremap <C-f> :Ack<space>
+noremap <C-p> :Files<CR>
+noremap <C-f> :Find<space>
 nnoremap <leader>tt :NERDTreeToggle<CR>
 nnoremap <leader>ff :NERDTreeFind<CR>
 nnoremap <leader>vv :vsplit<CR>
@@ -123,14 +118,15 @@ nnoremap <leader>pc :PlugClean<CR>
 
 " colors and theme
 set background=dark
-colorscheme one
-let g:lightline = { 'colorscheme': 'wombat' }
+colorscheme Tomorrow-Night-Eighties
+let g:airline_theme='base16_eighties'
+let g:gitgutter_sign_column_always = 1
 
 " highlights and indicators
 set cursorline
 let &colorcolumn="80"
 hi ColorColumn ctermbg=232
-hi Normal guibg=NONE ctermbg=NONE
+hi Normal ctermbg=none
 hi CursorLine ctermbg=232
 hi Cursor ctermbg=15 ctermfg=232
 hi Visual ctermbg=15 ctermfg=232
