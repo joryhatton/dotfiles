@@ -6,7 +6,6 @@ Plug 'chriskempson/tomorrow-theme', { 'rtp': 'vim/' }
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
@@ -61,7 +60,6 @@ set ttimeoutlen=0
 set updatetime=250
 set statusline+=%{fugitive#statusline()}
 set wildignore+=*/.git/*,tmp/*/**,*.swp,log/*/**,vendor/*/**
-set signcolumn=yes
 
 " remove trailing whitespace on save
 autocmd BufWritePre * %s/\s\+$//e
