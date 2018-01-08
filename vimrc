@@ -1,8 +1,8 @@
 set nocompatible
 
 call plug#begin('~/.vim/plugged')
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'chriskempson/tomorrow-theme', { 'rtp': 'vim/' }
-Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive'
@@ -90,12 +90,8 @@ end
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
-" use ripgrep with fzf
-command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --glob "!tmp/*" --glob "!vendor/*" --glob "!log/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
-
 let mapleader=","
 inoremap jk <ESC>
-noremap <C-p> :Files<CR>
 noremap <C-f> :Find<space>
 nnoremap <leader>tt :NERDTreeToggle<CR>
 nnoremap <leader>ff :NERDTreeFind<CR>
