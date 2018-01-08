@@ -1,5 +1,6 @@
 export PATH=/usr/local/bin:$PATH
 export EDITOR=vim
+export TERM=xterm-256color
 
 # oh-my-zsh
 export ZSH=$HOME/.oh-my-zsh

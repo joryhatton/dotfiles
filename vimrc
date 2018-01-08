@@ -122,7 +122,7 @@ let g:gitgutter_sign_column_always = 1
 set cursorline
 let &colorcolumn="80"
 hi ColorColumn ctermbg=232
-hi Normal ctermbg=none
-hi CursorLine ctermbg=232
+hi Normal ctermbg=NONE
+hi CursorLine cterm=NONE ctermbg=232
 hi Cursor ctermbg=15 ctermfg=232
 hi Visual ctermbg=15 ctermfg=232
