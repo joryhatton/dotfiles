@@ -61,6 +61,7 @@ set ttimeoutlen=0
 set updatetime=250
 set statusline+=%{fugitive#statusline()}
 set wildignore+=*/.git/*,tmp/*/**,*.swp,log/*/**,vendor/*/**
+set signcolumn=yes
 
 " remove trailing whitespace on save
 autocmd BufWritePre * %s/\s\+$//e
@@ -117,7 +118,6 @@ set t_Co=256
 set background=dark
 colorscheme Tomorrow-Night-Eighties
 let g:airline_theme='base16_eighties'
-let g:gitgutter_sign_column_always = 1
 
 " highlights and indicators
 set cursorline
