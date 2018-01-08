@@ -78,7 +78,7 @@ let g:NERDSpaceDelims=1
 let g:NERDTrimTrailingWhitespace=1
 
 " indentline
-let g:indentLine_color_term=234
+let g:indentLine_color_term=238
 let g:indentLine_char = '·'
 
 " remove quotes from auto-pairs for sanity
@@ -113,6 +113,7 @@ nnoremap <leader>pu :PlugUpdate<CR>
 nnoremap <leader>pc :PlugClean<CR>
 
 " colors and theme
+set t_Co=256
 set background=dark
 colorscheme Tomorrow-Night-Eighties
 let g:airline_theme='base16_eighties'
