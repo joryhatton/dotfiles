@@ -2,7 +2,7 @@ set nocompatible
 
 call plug#begin('~/.vim/plugged')
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'chriskempson/tomorrow-theme', { 'rtp': 'vim/' }
+Plug 'rakr/vim-one'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive'
@@ -15,7 +15,6 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'Yggdroot/indentLine'
 Plug 'ervandew/supertab'
 Plug 'sheerun/vim-polyglot'
-Plug 'neomake/neomake'
 Plug 'rstacruz/sparkup'
 Plug 'tpope/vim-rails'
 Plug 'avdgaag/vim-phoenix'
@@ -64,9 +63,6 @@ set wildignore+=*/.git/*,tmp/*/**,*.swp,log/*/**,vendor/*/**
 " remove trailing whitespace on save
 autocmd BufWritePre * %s/\s\+$//e
 
-" neomake
-autocmd! BufWritePost * Neomake
-
 " nerdtree
 let NERDTreeShowHidden=1
 let NERDTreeMinimalUI=1
@@ -114,8 +110,9 @@ nnoremap <leader>pc :PlugClean<CR>
 " colors and theme
 set t_Co=256
 set background=dark
-colorscheme Tomorrow-Night-Eighties
-let g:airline_theme='base16_eighties'
+colorscheme one
+let g:airline_theme='one'
+
 
 " highlights and indicators
 set cursorline
