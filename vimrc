@@ -6,7 +6,7 @@ Plug 'rakr/vim-one'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive'
-Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-vinegar'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
 Plug 'junegunn/vim-easy-align'
@@ -63,11 +63,6 @@ set wildignore+=*/.git/*,tmp/*/**,*.swp,log/*/**,vendor/*/**
 " remove trailing whitespace on save
 autocmd BufWritePre * %s/\s\+$//e
 
-" nerdtree
-let NERDTreeShowHidden=1
-let NERDTreeMinimalUI=1
-let NERDTreeAutoDeleteBuffer=1
-
 " nerdcommenter
 let g:NERDSpaceDelims=1
 let g:NERDTrimTrailingWhitespace=1
@@ -88,8 +83,6 @@ nmap ga <Plug>(EasyAlign)
 let mapleader=","
 inoremap jk <ESC>
 noremap <C-f> :Find<space>
-nnoremap <leader>tt :NERDTreeToggle<CR>
-nnoremap <leader>ff :NERDTreeFind<CR>
 nnoremap <leader>vv :vsplit<CR>
 nnoremap <leader>hh :split<CR>
 nnoremap <leader>a ^
@@ -112,7 +105,6 @@ set t_Co=256
 set background=dark
 colorscheme one
 let g:airline_theme='one'
-
 
 " highlights and indicators
 set cursorline
