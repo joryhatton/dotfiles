@@ -2,22 +2,22 @@ set nocompatible
 
 call plug#begin('~/.vim/plugged')
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'rakr/vim-one'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-vinegar'
-Plug 'scrooloose/nerdcommenter'
+Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-rails'
+Plug 'avdgaag/vim-phoenix'
 Plug 'junegunn/vim-easy-align'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'jiangmiao/auto-pairs'
 Plug 'Yggdroot/indentLine'
 Plug 'ervandew/supertab'
+Plug 'w0rp/ale'
 Plug 'sheerun/vim-polyglot'
-Plug 'rstacruz/sparkup'
-Plug 'tpope/vim-rails'
-Plug 'avdgaag/vim-phoenix'
+Plug 'rakr/vim-one'
+Plug 'itchyny/lightline.vim'
+Plug 'jremmen/vim-ripgrep'
 call plug#end()
 
 set et
@@ -82,7 +82,7 @@ nmap ga <Plug>(EasyAlign)
 
 let mapleader=","
 inoremap jk <ESC>
-noremap <C-f> :Find<space>
+noremap <C-f> :Rg<space>
 nnoremap <leader>vv :vsplit<CR>
 nnoremap <leader>hh :split<CR>
 nnoremap <leader>a ^
@@ -92,7 +92,6 @@ nnoremap <leader>lb O<ESC>
 nnoremap <leader>s :w<CR>
 nnoremap <leader>q :q<CR>
 nnoremap <leader>qq :qa!<CR>
-nnoremap <leader>gb :Gblame<CR>
 nnoremap <leader>gl :Glog<CR>
 nnoremap <leader>go :Gbrowse<CR>
 nnoremap <leader>rr :so ~/.vimrc<CR>
@@ -104,7 +103,16 @@ nnoremap <leader>pc :PlugClean<CR>
 set t_Co=256
 set background=dark
 colorscheme one
-let g:airline_theme='one'
+let g:lightline = {
+      \ 'colorscheme': 'one',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'fugitive#head'
+      \ },
+      \ }
 
 " highlights and indicators
 set cursorline
