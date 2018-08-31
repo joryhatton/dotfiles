@@ -1,23 +1,22 @@
 set nocompatible
 
 call plug#begin('~/.vim/plugged')
+Plug 'rakr/vim-one'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'jremmen/vim-ripgrep'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-rails'
-Plug 'avdgaag/vim-phoenix'
+Plug 'w0rp/ale'
+Plug 'sheerun/vim-polyglot'
 Plug 'junegunn/vim-easy-align'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'jiangmiao/auto-pairs'
 Plug 'Yggdroot/indentLine'
 Plug 'ervandew/supertab'
-Plug 'w0rp/ale'
-Plug 'sheerun/vim-polyglot'
-Plug 'rakr/vim-one'
 Plug 'itchyny/lightline.vim'
-Plug 'jremmen/vim-ripgrep'
 call plug#end()
 
 set et
@@ -63,18 +62,9 @@ set wildignore+=*/.git/*,tmp/*/**,*.swp,log/*/**,vendor/*/**
 " remove trailing whitespace on save
 autocmd BufWritePre * %s/\s\+$//e
 
-" nerdcommenter
-let g:NERDSpaceDelims=1
-let g:NERDTrimTrailingWhitespace=1
-
 " indentline
 let g:indentLine_color_term=238
 let g:indentLine_char = '·'
-
-" remove quotes from auto-pairs for sanity
-if !exists('g:AutoPairs')
-  let g:AutoPairs={'(':')', '[':']', '{':'}'}
-end
 
 " easy-align plugs
 xmap ga <Plug>(EasyAlign)
@@ -87,13 +77,9 @@ nnoremap <leader>vv :vsplit<CR>
 nnoremap <leader>hh :split<CR>
 nnoremap <leader>a ^
 nnoremap <leader>e $
-nnoremap <leader>la o<ESC>
-nnoremap <leader>lb O<ESC>
 nnoremap <leader>s :w<CR>
 nnoremap <leader>q :q<CR>
 nnoremap <leader>qq :qa!<CR>
-nnoremap <leader>gl :Glog<CR>
-nnoremap <leader>go :Gbrowse<CR>
 nnoremap <leader>rr :so ~/.vimrc<CR>
 nnoremap <leader>pi :PlugInstall<CR>
 nnoremap <leader>pu :PlugUpdate<CR>
