@@ -14,7 +14,7 @@ alias be="bundle exec"
 alias reload=". ~/.zshrc && echo 'zsh config reloaded'"
 alias rr="bundle exec rake db:drop db:create && bundle exec rake db:migrate db:test:prepare && bundle exec rake db:seed"
 alias ras="sh /usr/local/android-studio/bin/studio.sh"
-alias tks="tmux kill-session"
+alias tmuxdev="~/dotfiles/tmux-dev.sh"
 
 # rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
