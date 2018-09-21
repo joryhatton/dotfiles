@@ -70,6 +70,7 @@ let g:indentLine_char = '·'
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
+let g:netrw_localrmdir='rm -r'
 let mapleader=","
 inoremap jk <ESC>
 noremap <C-f> :Rg<space>
