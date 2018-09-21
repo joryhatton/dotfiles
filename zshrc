@@ -26,3 +26,4 @@ export DISPLAY=:0
 
 # set this last
 source $ZSH/oh-my-zsh.sh
+tmux source-file ~/.tmux.conf
