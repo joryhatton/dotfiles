@@ -1,4 +1,4 @@
-# dotfiles + [Backpack](https://github.com/fulstop/backpack)
+# dotfiles + [backpack](https://github.com/fulstop/backpack)
 
 A standardized set of vim, zsh, git, and tmux configuration files.
 
