@@ -3,6 +3,7 @@ set nocompatible
 call plug#begin('~/.vim/plugged')
 Plug 'rakr/vim-one'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'christoomey/vim-tmux-navigator'
 Plug 'jremmen/vim-ripgrep'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-vinegar'
@@ -82,6 +83,7 @@ nnoremap <leader>s :w<CR>
 nnoremap <leader>q :q<CR>
 nnoremap <leader>qq :qa!<CR>
 nnoremap <leader>rr :so ~/.vimrc<CR>
+nnoremap <leader>pp :so ~/.vimrc <bar> PlugInstall <bar> PlugUpdate <bar> q<CR>
 nnoremap <leader>pi :PlugInstall<CR>
 nnoremap <leader>pu :PlugUpdate<CR>
 nnoremap <leader>pc :PlugClean<CR>
