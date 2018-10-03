@@ -18,12 +18,9 @@ unset DISPLAY
 export DISPLAY=:0
 
 source $ZSH/oh-my-zsh.sh
-tmux source-file ~/.tmux.conf
 
 # aliases
 alias be="bundle exec"
 alias reload=". ~/.zshrc && echo 'zsh config reloaded'"
 alias rr="bundle exec rake db:drop db:create && bundle exec rake db:migrate db:test:prepare && bundle exec rake db:seed"
 alias ras="sh /usr/local/android-studio/bin/studio.sh"
-alias tmuxdev="~/dotfiles/tmux-dev.sh"
-alias backpack="~/dotfiles/backpack/backpack.sh"
