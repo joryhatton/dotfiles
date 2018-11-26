@@ -10,7 +10,7 @@ Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-rails'
-Plug 'w0rp/ale'
+Plug 'vim-ruby/vim-ruby'
 Plug 'sheerun/vim-polyglot'
 Plug 'junegunn/vim-easy-align'
 Plug 'terryma/vim-multiple-cursors'
@@ -18,6 +18,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'Yggdroot/indentLine'
 Plug 'ervandew/supertab'
 Plug 'itchyny/lightline.vim'
+Plug 'w0rp/ale'
 call plug#end()
 
 set et
@@ -59,19 +60,19 @@ set ttimeoutlen=0
 set updatetime=250
 set statusline+=%{fugitive#statusline()}
 set wildignore+=*/.git/*,tmp/*/**,*.swp,log/*/**,vendor/*/**
+set tags=./tags
 
 " remove trailing whitespace on save
 autocmd BufWritePre * %s/\s\+$//e
 
 " indentline
-let g:indentLine_color_term=238
+let g:indentLine_color_term=242
 let g:indentLine_char = '·'
 
 " easy-align plugs
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
-let g:netrw_localrmdir='rm -r'
 let mapleader=","
 inoremap jk <ESC>
 noremap <C-f> :Rg<space>
@@ -83,10 +84,13 @@ nnoremap <leader>s :w<CR>
 nnoremap <leader>q :q<CR>
 nnoremap <leader>qq :qa!<CR>
 nnoremap <leader>rr :so ~/.vimrc<CR>
-nnoremap <leader>pp :so ~/.vimrc <bar> PlugInstall <bar> PlugUpdate <bar> q<CR>
 nnoremap <leader>pi :PlugInstall<CR>
 nnoremap <leader>pu :PlugUpdate<CR>
 nnoremap <leader>pc :PlugClean<CR>
+
+" yil to yank all non-white on line except line break
+vnoremap <silent> il :<c-u>norm!^vg_<cr>
+onoremap <silent> il :norm vil<cr>
 
 " colors and theme
 set t_Co=256

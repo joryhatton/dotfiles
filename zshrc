@@ -8,19 +8,14 @@ export ZSH=$HOME/.oh-my-zsh
 export UPDATE_ZSH_DAYS=1
 plugins=(git zsh-syntax-highlighting)
 ZSH_THEME="kolo"
+source $ZSH/oh-my-zsh.sh
 
 # rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
-# solves various linux gui issues
-unset DISPLAY
-export DISPLAY=:0
-
-source $ZSH/oh-my-zsh.sh
-
 # aliases
 alias be="bundle exec"
 alias reload=". ~/.zshrc && echo 'zsh config reloaded'"
-alias rr="bundle exec rake db:drop db:create && bundle exec rake db:migrate db:test:prepare && bundle exec rake db:seed"
-alias ras="sh /usr/local/android-studio/bin/studio.sh"
+alias rr="be rake db:drop db:create && be rake db:migrate db:test:prepare && be rake db:seed"
+alias gentags="ctags -R --exclude=.git --exclude=log *"
