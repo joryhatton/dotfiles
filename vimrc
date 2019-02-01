@@ -73,6 +73,10 @@ let g:indentLine_char = '·'
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
+" netrw
+let g:netrw_localrmdir="rm -r"
+
+" custom leader shortcuts
 let mapleader=","
 inoremap jk <ESC>
 noremap <C-f> :Rg<space>
@@ -87,6 +91,7 @@ nnoremap <leader>rr :so ~/.vimrc<CR>
 nnoremap <leader>pi :PlugInstall<CR>
 nnoremap <leader>pu :PlugUpdate<CR>
 nnoremap <leader>pc :PlugClean<CR>
+nnoremap <leader>gr :R<CR>
 
 " yil to yank all non-white on line except line break
 vnoremap <silent> il :<c-u>norm!^vg_<cr>
@@ -96,16 +101,9 @@ onoremap <silent> il :norm vil<cr>
 set t_Co=256
 set background=dark
 colorscheme one
-let g:lightline = {
-  \ 'colorscheme': 'one',
-  \ 'active': {
-  \   'left': [ [ 'mode', 'paste' ],
-  \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-  \ },
-  \ 'component_function': {
-  \   'gitbranch': 'fugitive#head'
-  \ },
-  \ }
+let g:lightline = {'colorscheme':'one',
+  \ 'active':{'left':[['mode','paste'],['gitbranch','readonly','filename','modified']]},
+  \ 'component_function':{'gitbranch': 'fugitive#head'}}
 
 " highlights and indicators
 set cursorline

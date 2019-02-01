@@ -1,7 +1,6 @@
 # env
 export PATH=/usr/local/bin:$PATH
 export EDITOR=vim
-export TERM=xterm-256color
 
 # oh_my_zsh
 export ZSH=$HOME/.oh-my-zsh
@@ -16,6 +15,8 @@ eval "$(rbenv init -)"
 
 # aliases
 alias be="bundle exec"
+alias bup="brew update && brew upgrade && brew cleanup"
+alias sup="sudo apt update && sudo apt upgrade && sudo apt autoremove"
 alias reload=". ~/.zshrc && echo 'zsh config reloaded'"
 alias rr="be rake db:drop db:create && be rake db:migrate db:test:prepare && be rake db:seed"
-alias gentags="ctags -R --exclude=.git --exclude=log *"
+alias gtags="ctags -R --exclude=.git --exclude=log *"
