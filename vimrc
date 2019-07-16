@@ -18,6 +18,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'ervandew/supertab'
 call plug#end()
 
+set modifiable
 set et
 set showcmd
 set showmatch
@@ -60,6 +61,7 @@ set wildignore+=*/.git/*,tmp/*/**,*.swp,log/*/**,vendor/*/**
 set tags=./tags
 set wildmode=longest,list,full
 set wildmenu
+set guifont=Inconsolata\ Regular:h16
 
 " remove trailing whitespace on save
 autocmd BufWritePre * %s/\s\+$//e
