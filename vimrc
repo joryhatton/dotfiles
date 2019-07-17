@@ -16,6 +16,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'Yggdroot/indentLine'
 Plug 'itchyny/lightline.vim'
 Plug 'ervandew/supertab'
+Plug 'airblade/vim-gitgutter'
 call plug#end()
 
 set modifiable
@@ -61,7 +62,13 @@ set wildignore+=*/.git/*,tmp/*/**,*.swp,log/*/**,vendor/*/**
 set tags=./tags
 set wildmode=longest,list,full
 set wildmenu
-set guifont=Inconsolata\ Regular:h16
+
+" always show gitgutter to prevent toggling
+if exists('&signcolumn')
+  set signcolumn=yes
+else
+  let g:gitgutter_sign_column_always = 1
+endif
 
 " remove trailing whitespace on save
 autocmd BufWritePre * %s/\s\+$//e
