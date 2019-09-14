@@ -27,4 +27,4 @@ alias grbs="git fetch && git remote prune origin && git rebase origin/master"
 alias gbclean="git branch --merged | grep -v 'master' | xargs git branch -D"
 alias home="cd ~/"
 alias ex="explorer.exe ."
-alias sshaws="ssh -i price_list_aws.pem ubuntu@18.224.60.179"
+cat ~/.zshrc.local
