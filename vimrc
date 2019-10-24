@@ -62,6 +62,11 @@ set wildignore+=*/.git/*,tmp/*/**,*.swp,log/*/**,vendor/*/**
 set tags=./tags
 set wildmode=longest,list,full
 set wildmenu
+set mouse=a
+set term=xterm
+set t_Co=256
+set background=dark
+set cursorline
 
 " always show gitgutter to prevent toggling
 if exists('&signcolumn')
@@ -107,18 +112,15 @@ vnoremap <silent> il :<c-u>norm!^vg_<cr>
 onoremap <silent> il :norm vil<cr>
 
 " colors and theme
-set t_Co=256
-set background=dark
 colorscheme one
 let g:lightline = {'colorscheme':'one',
   \ 'active':{'left':[['mode','paste'],['gitbranch','readonly','filename','modified']]},
   \ 'component_function':{'gitbranch': 'fugitive#head'}}
 
 " highlights and indicators
-set cursorline
 let &colorcolumn="80"
 hi ColorColumn ctermbg=232
-hi Normal ctermbg=NONE
 hi CursorLine cterm=NONE ctermbg=232
 hi Cursor ctermbg=15 ctermfg=232
+hi Normal cterm=NONE ctermbg=234
 hi Visual ctermbg=15 ctermfg=232
