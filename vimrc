@@ -122,5 +122,5 @@ let &colorcolumn="80"
 hi ColorColumn ctermbg=232
 hi CursorLine cterm=NONE ctermbg=232
 hi Cursor ctermbg=15 ctermfg=232
-hi Normal cterm=NONE ctermbg=234
+hi Normal cterm=NONE ctermbg=235
 hi Visual ctermbg=15 ctermfg=232

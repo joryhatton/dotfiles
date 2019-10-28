@@ -31,6 +31,7 @@ alias txa="tmux attach -t dev"
 alias txk="tmux kill-server"
 alias ex="explorer.exe ."
 alias kk="clear"
+alias dc="sudo docker-compose"
 eval "$(cat ~/.zshrc.local)"
 
 # always startup at home
