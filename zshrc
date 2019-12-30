@@ -37,3 +37,8 @@ alias txk="tmux kill-server"
 alias ex="explorer.exe ."
 alias kk="clear"
 alias dc="sudo docker-compose"
+
+# always startup at home
+if true; then
+  cd ~
+fi
