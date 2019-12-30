@@ -11,17 +11,22 @@ plugins=(git z last-working-dir)
 ZSH_THEME="kolo"
 source $ZSH/oh-my-zsh.sh
 
-# rbenv
+### aliases
+
+# node / nvm
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+
+# ruby
+alias be="bundle exec"
+alias rr="be rake db:drop db:create && be rake db:migrate db:test:prepare && be rake db:seed"
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
-# aliases
-alias be="bundle exec"
-alias bup="brew update && brew upgrade && brew cleanup"
+# system
 alias sup="sudo apt update && sudo apt upgrade && sudo apt autoremove && sudo apt clean"
 alias reload="source ~/.zshrc && . ~/.zshrc && echo 'zsh config reloaded'"
 alias dbup="sudo service postgresql restart && sudo service redis-server restart"
-alias rr="be rake db:drop db:create && be rake db:migrate db:test:prepare && be rake db:seed"
 alias grpo="git fetch && git remote prune origin"
 alias grbs="git fetch && git remote prune origin && git rebase origin/master"
 alias gbclean="git branch --merged | grep -v 'master' | xargs git branch -D"
@@ -32,9 +37,3 @@ alias txk="tmux kill-server"
 alias ex="explorer.exe ."
 alias kk="clear"
 alias dc="sudo docker-compose"
-eval "$(cat ~/.zshrc.local)"
-
-# always startup at home
-if true; then
-  cd ~
-fi
