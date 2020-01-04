@@ -26,7 +26,6 @@ eval "$(rbenv init -)"
 # system
 alias sup="sudo apt update && sudo apt upgrade && sudo apt autoremove && sudo apt clean"
 alias reload="source ~/.zshrc && . ~/.zshrc && echo 'zsh config reloaded'"
-alias dbup="sudo service postgresql restart && sudo service redis-server restart"
 alias grpo="git fetch && git remote prune origin"
 alias grbs="git fetch && git remote prune origin && git rebase origin/master"
 alias gbclean="git branch --merged | grep -v 'master' | xargs git branch -D"
