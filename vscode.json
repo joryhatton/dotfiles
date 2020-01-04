@@ -1,0 +1,36 @@
+// note: multi-cursor accessed with 'gb'
+
+}
+  "editor.tabSize": 2,
+  "editor.renderWhitespace": "all",
+  "editor.lineNumbers": "relative",
+  "files.trimTrailingWhitespace": true,
+  "vim.leader": ",",
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["j", "k"],
+      "after": ["<Esc>"]
+    }
+  ],
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<leader>", "a"],
+      "after": ["^"]
+    },
+    {
+      "before": ["<leader>", "e"],
+      "after": ["$"]
+    },
+    {
+      "before": ["<leader>", "q", "q"],
+      "commands": [
+          ":wq"
+      ]
+    }
+    {
+      "before": ["<leader>", "s"],
+      "commands": ["workbench.action.files.save"]
+    }
+  ],
+  "vim.surround": tru
+}
