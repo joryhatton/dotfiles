@@ -35,8 +35,8 @@ alias txn="tmux new -s dev"
 alias txa="tmux attach -t dev"
 alias txk="tmux kill-server"
 alias ex="explorer.exe ."
-alias kk="clear"
 alias dc="sudo docker-compose"
+alias secpass="openssl rand -base64 60"
 
 # always startup at home
 if true; then
