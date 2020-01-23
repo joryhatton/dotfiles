@@ -24,20 +24,10 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
 # system
-alias sup="sudo apt update && sudo apt upgrade && sudo apt autoremove && sudo apt clean"
+alias sup="sudo apt update -y && sudo apt upgrade -y && sudo apt autoremove -y && sudo apt clean"
 alias reload="source ~/.zshrc && . ~/.zshrc && echo 'zsh config reloaded'"
 alias grpo="git fetch && git remote prune origin"
 alias grbs="git fetch && git remote prune origin && git rebase origin/master"
 alias gbclean="git branch --merged | grep -v 'master' | xargs git branch -D"
-alias tmux='tmux -2'
-alias txn="tmux new -s dev"
-alias txa="tmux attach -t dev"
-alias txk="tmux kill-server"
 alias ex="explorer.exe ."
-alias dc="sudo docker-compose"
 alias secpass="openssl rand -base64 60"
-
-# always startup at home
-if true; then
-  cd ~
-fi
