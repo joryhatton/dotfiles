@@ -27,6 +27,7 @@ alias stopemssql="curl -X GET \"https://yke2a03wx1.execute-api.us-east-2.amazona
 alias wslservices="sudo service postgresql restart && redis-server --daemonize yes"
 alias wslclock="sudo ntpdate pool.ntp.org"
 alias wslstartup="startservices && fixclock"
+alias vsc="code ."
 
 # node / nvm
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
